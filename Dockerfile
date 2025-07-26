@@ -1,8 +1,10 @@
 # Build stage
 FROM openjdk:17-jdk-alpine AS builder
 WORKDIR /app
-COPY . .
-RUN ./mvnw clean package -DskipTests
+COPY pom.xml mvnw ./
+COPY src ./src
+COPY .mvn ./.mvn
+RUN apk add --no-cache maven && mvn clean package -DskipTests
 
 # Runtime stage
 FROM openjdk:17-jre-alpine
