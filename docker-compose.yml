@@ -1,6 +1,6 @@
 services:
   db:
-    image: mysql:8.0
+    image: mariadb:10
     container_name: mysql_db
     environment:
       MYSQL_DATABASE: demo
@@ -25,7 +25,7 @@ services:
       SPRING_DATASOURCE_URL: jdbc:mysql://db:3306/demo?useSSL=false&allowPublicKeyRetrieval=true
       SPRING_DATASOURCE_USERNAME: root
       SPRING_DATASOURCE_PASSWORD: root
-      SPRING_JPA_PROPERTIES_HIBERNATE_DIALECT: org.hibernate.dialect.MySQL5InnoDBDialect
+      SPRING_JPA_PROPERTIES_HIBERNATE_DIALECT: org.hibernate.dialect.MySQL8Dialect
       SPRING_JPA_HIBERNATE_DDL_AUTO: update
       SPRING_JPA_SHOW_SQL: true
     ports:
