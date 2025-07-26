@@ -1,0 +1,22 @@
+apiVersion: eksctl.io/v1alpha5
+kind: ClusterConfig
+
+metadata:
+  name: monitoring
+  region: ap-south-1
+
+vpc:
+  nat:
+    gateway: Disable  # 💡 disables NAT and EIP usage
+
+managedNodeGroups:
+  - name: eks8ng
+    instanceType: t2.medium
+    desiredCapacity: 1
+    minSize: 1
+    maxSize: 2
+    ssh:
+      allow: true
+      publicKeyName: mujahed.pub  # Replace with your actual EC2 key pair name
+
+
