@@ -1,5 +1,4 @@
-FROM openjdk:17-jdk-alpine
-RUN apk add --no-cache libc6-compat
+FROM openjdk:17-jre-alpine
 WORKDIR /app
 COPY target/Employee_Management_System-0.0.1-SNAPSHOT.jar app.jar
 EXPOSE 9090
